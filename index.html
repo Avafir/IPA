@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nervenzelle Simulation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="headerContent" id="einstellungen"></div>
+            <div class="headerContent" id="anleitung"></div>
+        </header>
+        <div id="top-container">
+            <div id="reglerDiv">
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler1">
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler2">
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler3">
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler4">
+            </div>
+            <div id="animation"></div>
+        </div>
+        <div id="bot-container">
+            <div id="stoerung"></div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
