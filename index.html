@@ -20,13 +20,30 @@
         <div id="top-container">
             <div id="reglerDiv">
                 <input type="range" min="0" max="5" value="0" class="regler" id="regler1" oninput="check_slider('value1','regler1');">
-                <div class="valueDivs" id="value1">0</div>
-                <input type="range" min="0" max="5" value="0" class="regler" id="regler2">
-                <input type="range" min="0" max="5" value="0" class="regler" id="regler3">
-                <input type="range" min="0" max="5" value="0" class="regler" id="regler4">
+                <div>
+                    <div class="valueDivs" id="value1">0</div>
+                    <button type="button" id="btn1">Senden</button>
+                </div>
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler2" oninput="check_slider('value2','regler2');">
+                <div>
+                    <div class="valueDivs" id="value2">0</div>
+                    <button type="button" id="btn2">Senden</button>
+                </div>
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler3" oninput="check_slider('value3','regler3');">
+                <div>
+                    <div class="valueDivs" id="value3">0</div>
+                    <button type="button" id="btn3">Senden</button>
+                </div>
+                <input type="range" min="0" max="5" value="0" class="regler" id="regler4" oninput="check_slider('value4','regler4');">
+                <div>
+                    <div class="valueDivs" id="value4">0</div>
+                    <button type="button" id="btn4">Senden</button>
+                </div>
             </div>
             <div id="animation">
-                <img src="images/NervenzellePlatzhalter2.png" alt="Bild Nervenzelle"/>
+                <canvas id="canvas">
+                    Your browser does not support the canvas element.
+                </canvas>
             </div>
         </div>
         <div id="bot-container">
