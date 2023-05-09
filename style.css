@@ -1,10 +1,15 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
     width: 100%;
     height: 100%;
 }
@@ -39,13 +44,33 @@ header{
     background-size: cover;
 }
 
+#anleitung:hover{
+    transform: scale(0.85);
+    transition: transform .2s;
+}
+
 #einstellungen{
     background-image: url(images/settingsicon.png);
     background-size: cover;
 }
 
+#einstellungen:hover{
+    transform: scale(0.85);
+    transition: transform .2s;
+}
+
 #top-container{
     height: 90%;
+    width: 100%;
+}
+
+#anleitungDiv{
+    width: 100%;
+    height: 90%;
+    opacity: 0.2;
+    background-color: #56c080;
+    position: absolute;
+    visibility: hidden;
 }
 
 #reglerDiv{
@@ -74,26 +99,176 @@ header{
 .valueDivs{
     height: 15px;
     width: 15px;
-    background-color: #56c080;
 }
 
 #animation{
+    background: url('images/NervenzellePlatzhalter2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 100%;
     width: 83%;
     float: left;
 }
 
-#canvas{
-    background: url('images/NervenzellePlatzhalter2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
+.ringe{
+    margin: auto;
+    position: relative;
+    border-radius: 50%;
+    /*border: 2px dotted #000000;*/
 }
 
-#bot-container{
+#ring4{
+    height: 50%;
+    margin-top: 15%;
+    margin-left: 5%;
+    border-radius: 50%;
+}
+
+#ring3{
+    height: 100%;
     width: 100%;
+}
+
+#ring2{
+    height: 70%;
+    width: 70%;
+    top: 15%;
+}
+
+#ring1{
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    border-radius: 50%;
+}
+
+.kreise1{
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+}
+
+.kreise2{
+    height: 15%;
+    width: 15%;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+}
+
+.kreise3{
+    height: 10%;
+    width: 10%;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+}
+
+#kreis1{
+    left: 35%;
+    top: 35%;
+}
+
+#kreisueberlauf{
+    left: 35%;
+    top: 35%;
+}
+
+#kreis2{
+    top: 70%
+}
+
+#kreis3{
+    left: 70%;
+}
+
+#kreis4{
+    top: 70%;
+    left: 70%;
+}
+
+#kreis6{
+    top: 7%;
+    left: 7%;
+}
+
+#kreis7{
+    top: 7%;
+    left: 77%;
+}
+
+#kreis8{
+    top: 77%;
+    left: 7%;
+}
+
+#kreis9{
+    top: 77%;
+    left: 77%;
+}
+
+#kreis10{
+    left: 40%;
+    top: -7%;
+}
+
+#kreis11{
+    top: 40%;
+    left: -7%;
+}
+
+#kreis12{
+    top: 93%;
+    left: 40%;
+}
+
+#kreis13{
+    top: 40%;
+    left: 93%;
+}
+
+#kreis14{
+    top: 25%;
+}
+
+#kreis15{
+    top: 63%;
+}
+
+#kreis16{
+    top: 90%;
+    left: 25%;
+}
+
+#kreis17{
+    top: 90%;
+    left: 63%;
+}
+
+#kreis18{
+    top: 63%;
+    left: 90%;
+}
+
+#kreis19{
+    top: 25%;
+    left: 90%;
+}
+
+#kreis20{
+    left: 25%;
+}
+
+#kreis21{
+    left: 63%;
+}
+
+
+#bot-container{
     height: 5%;
+    width: 100%;
 }
 
 #switch {
@@ -151,8 +326,7 @@ header{
     font-family: 'Comic Neue', cursive;
     font-style: bold;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 32px;
     float: right;
     margin-right: 5px;
-    padding-bottom: 5px;
 }
