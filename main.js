@@ -1,49 +1,38 @@
 "use strict";
 
-var btn1 = document.getElementById("btn1");
-var btn2 = document.getElementById("btn2");
-var btn3 = document.getElementById("btn3");
-var btn4 = document.getElementById("btn4");
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+//Kreis für die Animation vorbereiten
 let kreisueberlauf = document.getElementById("kreisueberlauf");
 kreisueberlauf.setAttribute("style","opacity: 0");
-let interval;
-let zaehler = 0;
 
-/*
-var kreis1 = document.getElementById("kreis1");
-kreis1.setAttribute("style","opacity: 0.1");
-kreis.setAttribute("style","opacity: 0.1");
-*/
-
-/*
-for(let i = 0; i<21;i++){
-  kreis = kreise[i];
-}
-*/
-
+//Array erstellen mit den Kreisen
 let kreise = []
 let kreisID;
 let kreis;
-for(let i = 0; i<21; i++){
+for(let i = 0; i<12; i++){
   kreis = document.getElementById(`kreis${i+1}`);
   kreis.setAttribute("style","opacity: 0");
   kreise.push(kreis);
 }
-console.log(kreise)
 
-var Impulsstaerke = 0;
-var timer;
-var Ring0 = true;
-var Ring1 = false;
-var Ring2 = false;
-var Ring3 = false;
-var Ring4 = false;
+let interval;
+let zaehler = 0;
+let Impulsstaerke = 0;
+let timer;
+let Ring0 = true;
+let Ring1 = false;
+let Ring2 = false;
+let Ring3 = false;
+let Ring4 = false;
 let prozent;
 
-let ringbox = document.querySelector('#ring4');
+let ringbox = document.querySelector('#ring');
 let height = ringbox.offsetHeight;
 let styleVariable = `width:${height}px`;
-document.getElementById('ring4').setAttribute("style",styleVariable);
+document.getElementById('ring').setAttribute("style",styleVariable);
 
 function check_slider(text_id,range_id) {
   let rangeZahl=document.getElementById(range_id).value;
@@ -51,11 +40,10 @@ function check_slider(text_id,range_id) {
 }
 
 function Impuls(){
-  //eigene Funktion für die valueID einbauen
   clearTimeout(timer);
-  var btnID = this.id;
-  var NumberOfInput = btnID.slice(-1);
-  var reglerValue = `regler${NumberOfInput}`;
+  let btnID = this.id;
+  let NumberOfInput = btnID.slice(-1);
+  let reglerValue = `regler${NumberOfInput}`;
   if(NumberOfInput == 1 || NumberOfInput == 2){
     Impulsstaerke += Number(document.getElementById(reglerValue).value);
   }
@@ -65,9 +53,7 @@ function Impuls(){
       Impulsstaerke = 0;
     }
   }
-  console.log(Impulsstaerke);
   checkRinge();
-  console.log(Ring0, Ring1, Ring2, Ring3,Ring4);
   drawRinge();
   timer = setTimeout(resetAfter3, 3000);
 }
@@ -102,43 +88,47 @@ function checkRinge(){
 
 function drawRinge(){
   if(Ring0 == true){
-    for(let i = 0; i<21;i++){
+    for(let i = 0; i<12;i++){
       kreise[i].setAttribute("style","opacity: 0");
     }
   }
   if(Ring1 == true){
-    kreise[0].setAttribute("style","opacity: 1");
+    for(let i = 0; i<4;i++){
+      kreise[i].setAttribute("style","opacity: 1");
+    }
   }
   if(Ring1 != true){
-    kreise[0].setAttribute("style","opacity: 0");
+    for(let i = 0; i<4;i++){
+      kreise[i].setAttribute("style","opacity: 0");
+    }
   }
   if(Ring2 == true){
-    for(let i = 1; i<5;i++){
+    for(let i = 4; i<7;i++){
       kreise[i].setAttribute("style","opacity: 1");
     }
   }
   if(Ring2 != true){
-    for(let i = 1; i<5;i++){
+    for(let i = 4; i<7;i++){
       kreise[i].setAttribute("style","opacity: 0");
     }
   }
   if(Ring3 == true){
-    for(let i = 5; i<13;i++){
+    for(let i = 7; i<10;i++){
       kreise[i].setAttribute("style","opacity: 1");
     }
   }
   if(Ring3 != true){
-    for(let i = 5; i<13;i++){
+    for(let i = 7; i<10;i++){
       kreise[i].setAttribute("style","opacity: 0");
     }
   }
   if(Ring4 == true){
-    for(let i = 13; i<21;i++){
+    for(let i = 10; i<12;i++){
       kreise[i].setAttribute("style","opacity: 1");
     }
   }
   if(Ring4 != true){
-    for(let i = 13; i<21;i++){
+    for(let i = 10; i<12;i++){
       kreise[i].setAttribute("style","opacity: 0");
     }
   }
@@ -146,10 +136,13 @@ function drawRinge(){
 
 function resetAfter3(){
   if(Impulsstaerke >= 4){
-    kreisueberlauf.setAttribute("style","opacity: 1");
-    prozent = 35;
-    interval = setInterval(ueberlaufAnimation, 50);
-
+    if(document.getElementById('checkbox').checked){
+      console.log("Störung!!");
+    } else {
+      kreisueberlauf.setAttribute("style","opacity: 1");
+      prozent = 35;
+      interval = setInterval(ueberlaufAnimation, 50);
+    }
   }
   
   Impulsstaerke = 0;
